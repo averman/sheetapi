@@ -1,0 +1,12 @@
+service: gsheet-service
+provider:
+  name: aws
+  runtime: nodejs20.x
+functions:
+  gsheetApi:
+    handler: handler.endpoint
+    events:
+      - http:
+          path: sheets/{id}
+          method: get
+          cors: true
